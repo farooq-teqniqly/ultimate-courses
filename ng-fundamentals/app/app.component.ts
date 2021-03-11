@@ -7,9 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title: string;
+  name: string;
 
   constructor() {
     this.title = 'Ultimate Angular';
+    this.name = 'Farooq Mahmud';
   }
 
+  handleClick(value: string) {
+    console.log(value);
+  }
 }
