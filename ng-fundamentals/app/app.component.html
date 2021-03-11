@@ -1,5 +1,20 @@
 <div class="app">
-    <input type="text" #username>
-    <div>{{ name }}</div>
-    <button (click)="handleClick(username.value)">Get Value</button>
+    <h1>{{ title }}</h1>
+    <h3>Number of passengers: {{passengers.length}}</h3>
+    <ul>
+        <li *ngFor="let p of passengers; let i = index">
+            <span 
+                class="passenger-status"
+                [ngClass]="{'checked-in': p.checkedIn}">
+                {{i}}: {{ p.fullName }}
+            </span>
+            <span>Number of children: {{ p.children?.length || 0 }}</span>
+            <input 
+                type="checkbox" 
+                disabled 
+                readonly 
+                value="Checked in" 
+                [checked]="p.checkedIn ? true : false">
+        </li>
+    </ul>
 </div>
